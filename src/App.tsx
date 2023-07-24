@@ -1,14 +1,14 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
+import NavBar from "./components/NavBar";
 import "./App.css";
 
 function App() {
   const items = ["Test1", "Test2", "Test3", "Test4"];
 
   return (
-    <div className="grid grid-cols-6">
-      <div className="col-span-full bg-teal-500">
-        <h1 className="">Nav</h1>
+    <div className="bg-black grid grid-cols-6">
+      <div className="col-span-full">
+        <NavBar></NavBar>
       </div>
       <div className="hidden lg:block lg:col-span-1 bg-amber-500">
         <h1 className="">Sidebar</h1>
