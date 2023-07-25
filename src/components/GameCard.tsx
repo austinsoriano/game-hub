@@ -4,6 +4,7 @@ import meh from "../assets/meh.webp";
 import thumbsUp from "../assets/thumbs-up.webp";
 import bullsEye from "../assets/bulls-eye.webp";
 import getCroppedImageUrl from "../services/image-url";
+import CriticScore from "./CriticScore";
 
 interface Props {
   game: Game;
@@ -28,12 +29,7 @@ const GameCard = ({ game }: Props) => {
               platforms={game.parent_platforms.map((p) => p.platform)}
             ></PlatformIconList>
           </div>
-          <div
-            id="gameScore"
-            className="text-white text-xs bg-green-700 p-[3px]"
-          >
-            {game.metacritic}
-          </div>
+          <CriticScore score={game.metacritic}></CriticScore>
         </div>
         <p className="text-white text-left">{game.name}</p>
         <img src={bullsEye} className="h-[25px] w-[25px]"></img>
