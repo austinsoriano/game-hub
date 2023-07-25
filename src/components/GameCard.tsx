@@ -23,9 +23,9 @@ const GameCard = ({ game }: Props) => {
           id="gameDetails"
         >
           <div id="gamePlatforms" className="text-white text-xs">
-            <PlatformIconList
+            {/* <PlatformIconList
               platforms={game.parent_platforms.map((p: any) => p.platform)}
-            ></PlatformIconList>
+            ></PlatformIconList> */}
           </div>
           <CriticScore score={game.metacritic}></CriticScore>
         </div>
