@@ -11,15 +11,10 @@ import { MdPhoneIphone } from "react-icons/md";
 import { SiNintendo } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
 import { IconType } from "react-icons";
+import { Platform } from "../hooks/usePlatforms";
 
 interface Props {
   platforms: Platform[];
-}
-
-interface Platform {
-  id: number;
-  name: string;
-  slug: string;
 }
 
 const PlatformIconList = ({ platforms }: Props) => {
@@ -36,12 +31,12 @@ const PlatformIconList = ({ platforms }: Props) => {
   };
   return (
     <div className="flex flex-row">
-      {platforms.map((platform) => {
-        return React.createElement(iconMap[platform.slug], {
+      {platforms.map((platform) =>
+        React.createElement(iconMap[platform.slug], {
           key: platform.id,
           className: "mx-[3px]",
-        });
-      })}
+        })
+      )}
     </div>
   );
 };

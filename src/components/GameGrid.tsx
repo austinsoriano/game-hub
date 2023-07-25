@@ -1,23 +1,16 @@
 import GameCard from "./GameCard";
-import { Platform } from "../hooks/usePlatforms";
-
-export interface Game {
-  id: number;
-  metacritic: number;
-  name: string;
-  background_image: string;
-  parent_platforms: { platform: Platform }[];
-  rating_top: number;
-}
+import { GameQuery } from "../App";
+import useGames, { Game } from "../hooks/useGames";
 
 interface Props {
-  games: Game[];
+  gameQuery: GameQuery;
 }
 
-const GameGrid = ({ games }: Props) => {
+const GameGrid = ({ gameQuery }: Props) => {
+  const { data, isLoading, error } = useGames(gameQuery);
   return (
     <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-[25px]">
-      {games.map((game) => {
+      {data.map((game: Game) => {
         return (
           <div key={game.id} className="rounded-[10px] overflow-hidden">
             <GameCard game={game}></GameCard>
