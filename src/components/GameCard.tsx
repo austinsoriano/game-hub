@@ -1,4 +1,5 @@
 import { Game } from "./GameGrid";
+import PlatformIconList from "./PlatformIconList";
 import meh from "../assets/meh.webp";
 import thumbsUp from "../assets/thumbs-up.webp";
 import bullsEye from "../assets/bulls-eye.webp";
@@ -23,7 +24,9 @@ const GameCard = ({ game }: Props) => {
           id="gameDetails"
         >
           <div id="gamePlatforms" className="text-white text-xs">
-            Test
+            <PlatformIconList
+              platforms={game.parent_platforms.map((p) => p.platform)}
+            ></PlatformIconList>
           </div>
           <div
             id="gameScore"
