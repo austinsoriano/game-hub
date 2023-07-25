@@ -13,7 +13,7 @@ const NavBar = () => {
             className="absolute px-[10px]"
           ></BsSearch>
           <input
-            className="w-full bg-gray-900 rounded-[20px] pl-[30px] pr=[5px]"
+            className="w-full bg-gray-900 rounded-[20px] pl-[30px] p-[5px]"
             placeholder="Search games..."
           ></input>
         </div>
