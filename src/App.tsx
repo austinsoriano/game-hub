@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import NavBar from "./components/NavBar";
 import GenreList from "./components/GenreList";
 import GameGrid from "./components/GameGrid";
+import PlatformSelector from "./components/PlatformSelector";
 import { Genre } from "./hooks/useGenres";
 import { Platform } from "./hooks/usePlatforms";
 import "./App.css";
 
 export interface GameQuery {
   genres: Genre | null;
-  platform: Platform | null;
+  platforms: string;
   sortOrder: string;
   searchText: string;
 }
@@ -31,6 +32,13 @@ function App() {
       </div>
       <div className="col-span-10 lg:col-span-9">
         <h1 className="text-white text-3xl font-bold py-[10px]">Games</h1>
+        <div className="flex flex-row items-center">
+          <PlatformSelector
+            onSelectedPlatform={(platforms) =>
+              setGameQuery({ ...gameQuery, platforms })
+            }
+          ></PlatformSelector>
+        </div>
         <GameGrid gameQuery={gameQuery}></GameGrid>
       </div>
     </div>

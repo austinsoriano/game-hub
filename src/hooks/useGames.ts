@@ -18,16 +18,16 @@ const useGames = (gameQuery: GameQuery) => {
   for (const key in gameQuery) {
     if (gameQuery[key as keyof GameQuery]) {
       let queryValue;
-      if (key === "genres" || key === "platform") {
+      if (key === "genres") {
         queryValue = JSON.stringify(gameQuery[key]?.id);
       } else {
-        queryValue = JSON.stringify(gameQuery[key as keyof GameQuery]);
+        queryValue = JSON.stringify(
+          gameQuery[key as keyof GameQuery]
+        ).replaceAll('"', "");
       }
-      console.log("queryValue: " + queryValue);
       url.searchParams.set(key, queryValue);
     }
   }
-  url.searchParams.set("genre", "7");
   return useData<Game>(url.toString(), [gameQuery]);
 };
 

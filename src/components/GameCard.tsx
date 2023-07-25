@@ -9,7 +9,6 @@ interface Props {
 }
 
 const GameCard = ({ game }: Props) => {
-  console.log("Current Game: " + JSON.stringify(game));
   return (
     <div
       id="gameCardContainer"
