@@ -5,7 +5,6 @@ const GenreList = () => {
   const { data, isLoading, error } = useGenres();
   return (
     <div>
-      <p className="text-xl font-bold text-white px-[10px]">Genres</p>
       <ul>
         {data.map((genre) => {
           return (
