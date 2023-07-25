@@ -9,7 +9,7 @@ const GenreList = () => {
       <ul>
         {data.map((genre) => {
           return (
-            <li className="flex flex-row items-center p-[10px]">
+            <li key={genre.id} className="flex flex-row items-center p-[10px]">
               <img
                 className="object-cover rounded-[8px] w-[30px] h-[30px]"
                 src={getCroppedImageUrl(genre.image_background)}
