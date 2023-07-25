@@ -17,7 +17,6 @@ const PlatformSelector = ({ onSelectedPlatform }: Props) => {
           let selected = (
             document.getElementById("select-platforms") as HTMLInputElement
           ).value;
-          console.log("PLATFORM SELECT: " + selected);
           onSelectedPlatform(selected);
         }}
       >
