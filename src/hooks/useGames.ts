@@ -28,6 +28,7 @@ const useGames = (gameQuery: GameQuery) => {
       url.searchParams.set(key, queryValue);
     }
   }
+  console.log("TEST: " + url.toString());
   return useData<Game>(url.toString(), [gameQuery]);
 };
 

@@ -11,7 +11,7 @@ export interface GameQuery {
   genres: Genre | null;
   platforms: string;
   sortOrder: string;
-  searchText: string;
+  search: string;
 }
 
 function App() {
@@ -22,7 +22,9 @@ function App() {
   return (
     <div className="bg-black grid grid-cols-10">
       <div className="col-span-full">
-        <NavBar></NavBar>
+        <NavBar
+          onSearch={(search) => setGameQuery({ ...gameQuery, search })}
+        ></NavBar>
       </div>
       <div className="hidden lg:block lg:col-span-1">
         <h1 className="text-xl font-bold text-white px-[10px]">Genres</h1>
