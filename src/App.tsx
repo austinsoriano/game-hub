@@ -1,20 +1,20 @@
-import { useState } from "react";
 import NavBar from "./components/NavBar";
+import GenreList from "./components/GenreList";
 import "./App.css";
 
-function App() {
-  const items = ["Test1", "Test2", "Test3", "Test4"];
+export interface Game {}
 
+function App() {
   return (
-    <div className="bg-black grid grid-cols-6">
+    <div className="bg-black grid grid-cols-10">
       <div className="col-span-full">
         <NavBar></NavBar>
       </div>
-      <div className="hidden lg:block lg:col-span-1 bg-amber-500">
-        <h1 className="">Sidebar</h1>
+      <div className="hidden lg:block lg:col-span-1">
+        <GenreList></GenreList>
       </div>
-      <div className="col-span-6 lg:col-span-5 bg-yellow-500">
-        <h1 className="">Main</h1>
+      <div className="col-span-10 lg:col-span-9 bg-yellow-500">
+        <h1 className="text-white">Games</h1>
       </div>
     </div>
   );
