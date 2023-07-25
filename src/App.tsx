@@ -33,7 +33,9 @@ function App() {
         ></GenreList>
       </div>
       <div className="col-span-10 lg:col-span-9">
-        <h1 className="text-white text-3xl font-bold py-[10px]">Games</h1>
+        <h1 className="text-white text-3xl font-bold ml-[25px] py-[10px]">
+          Games
+        </h1>
         <div className="flex flex-row items-center">
           <PlatformSelector
             onSelectedPlatform={(platforms) =>

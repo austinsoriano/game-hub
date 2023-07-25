@@ -13,6 +13,7 @@ const PlatformSelector = ({ onSelectedPlatform }: Props) => {
       <select
         name="platforms"
         id="select-platforms"
+        className="bg-gray-800 text-white p-[8px] rounded-sm ml-[25px]"
         onChange={() => {
           let selected = (
             document.getElementById("select-platforms") as HTMLInputElement
