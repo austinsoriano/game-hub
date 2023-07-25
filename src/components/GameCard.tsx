@@ -1,10 +1,8 @@
 import { Game } from "./GameGrid";
 import PlatformIconList from "./PlatformIconList";
-import meh from "../assets/meh.webp";
-import thumbsUp from "../assets/thumbs-up.webp";
-import bullsEye from "../assets/bulls-eye.webp";
 import getCroppedImageUrl from "../services/image-url";
 import CriticScore from "./CriticScore";
+import Emoji from "./Emoji";
 
 interface Props {
   game: Game;
@@ -19,9 +17,9 @@ const GameCard = ({ game }: Props) => {
       <div id="gameImgContainer">
         <img src={getCroppedImageUrl(game.background_image)}></img>
       </div>
-      <div id="gameContentContainer" className="p-[10px]">
+      <div id="gameContentContainer" className="p-[15px]">
         <div
-          className="flex flex-row items-center justify-between"
+          className="flex flex-row items-center justify-between py-[3px]"
           id="gameDetails"
         >
           <div id="gamePlatforms" className="text-white text-xs">
@@ -31,8 +29,8 @@ const GameCard = ({ game }: Props) => {
           </div>
           <CriticScore score={game.metacritic}></CriticScore>
         </div>
-        <p className="text-white text-left">{game.name}</p>
-        <img src={bullsEye} className="h-[25px] w-[25px]"></img>
+        <p className="text-white text-left py-[3px]">{game.name}</p>
+        <Emoji rating={game.rating_top}></Emoji>
       </div>
     </div>
   );
