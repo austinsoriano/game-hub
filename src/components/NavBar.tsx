@@ -8,6 +8,52 @@ interface Props {
 
 const NavBar = ({ onSearch }: Props) => {
   const ref = useRef<HTMLInputElement>(null);
+  // const mouseRef = useRef<HTMLElement>(null);
+
+  const throttleElement = document.getElementById("default");
+
+  document.addEventListener("mousemove", (e) => {
+    console.log("here");
+    incrementCount(throttleElement);
+    // updateThrottleText();
+  });
+
+  // const updateThrottleText = throttle(() => {
+  //   incrementCount(throttleElement);
+  // }, 100);
+
+  function incrementCount(element: HTMLElement) {
+    if (element) {
+      element.textContent = ((parseInt(element.innerText) || 0) + 1).toString();
+    } else {
+      console.log("Element is null");
+    }
+  }
+
+  // function throttle(callback: any, delay = 1000) {
+  //   let shouldWait = false;
+  //   let waitingArgs: any;
+  //   let timeoutFunction = () => {
+  //     if (waitingArgs === null) {
+  //       shouldWait = false;
+  //     } else {
+  //       callback(waitingArgs);
+  //       waitingArgs = null;
+  //       setTimeout(timeoutFunction, delay);
+  //     }
+  //   };
+
+  //   return (...args: any) => {
+  //     if (shouldWait) {
+  //       waitingArgs = args;
+  //       return;
+  //     }
+  //     callback(...args);
+  //     shouldWait = true;
+
+  //     setTimeout(timeoutFunction, delay);
+  //   };
+  // }
 
   const updateSearch = debounce((text: string) => {
     onSearch(text);
@@ -25,7 +71,7 @@ const NavBar = ({ onSearch }: Props) => {
   }
 
   return (
-    <div className="flex flex-row p-[10px] items-center w-full">
+    <div className="flex flex-row p-[10px] items-center w-full justify-evenly">
       <img src={logo} width="60" height="60"></img>
       {/* <form
         className="w-full"
@@ -36,7 +82,7 @@ const NavBar = ({ onSearch }: Props) => {
           }
         }}
       > */}
-      <div className="relative flex items-center">
+      <div className="relative flex items-center w-full">
         <BsSearch
           color="white"
           size="35px"
@@ -55,6 +101,7 @@ const NavBar = ({ onSearch }: Props) => {
           }}
         ></input>
       </div>
+      <span id="default" className="text-white p-[10px]"></span>
       {/* </form> */}
     </div>
   );

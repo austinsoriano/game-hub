@@ -19,6 +19,24 @@ function App() {
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  const throttleElement = document.getElementById("default");
+
+  document.addEventListener("mousemove", (e) => {
+    console.log("here");
+    incrementCount(throttleElement);
+    // updateThrottleText();
+  });
+
+  function incrementCount(element: any) {
+    if (throttleElement) {
+      throttleElement.textContent = (
+        (parseInt(throttleElement.innerText) || 0) + 1
+      ).toString();
+    } else {
+      console.log("Null element");
+    }
+  }
+
   return (
     <div className="bg-black grid grid-cols-10">
       <div className="col-span-full">
